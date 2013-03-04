@@ -4,63 +4,34 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>ECT 330 Product Line</title>
-    <link href="Site.css" rel="Stylesheet" type="text/css" />
+    <title>PetFinder</title>
+    <link rel="stylesheet" type="text/css" href="Site.css" />
+    <style type="text/css">
+        td      { padding-top:0.15cm; padding-bottom:0.15cm;
+                  padding-left:0.5cm; padding-right:0.5cm; }
+        tr      { text-align:center; }
+        .field  { width:150px}
+        .error  { color:red}
+    </style>
 </head>
-
 <body>
-    <form id="form1" runat="server">
     <div class="page">
         <div class="header">
             <div class="title">
-               <h1> ECT 330 2013 Catalog</h1>
+               <h1> Welcome to PetFinder!</h1>
             </div>
             <div class="clear hideSkiplink">  </div>
         </div>
-    <p>&nbsp;</p>
     <div class="main">
-    <table>
-    <tr>
-        <td colspan="2"> 
-        Select by
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <asp:RadioButtonList ID="rdoFieldSpecified" runat="server">
-              <asp:ListItem Selected="True">SupplierID</asp:ListItem>
-              <asp:ListItem>CategoryID</asp:ListItem>
-            </asp:RadioButtonList>
-
-        </td>
-        <td valign="bottom">
-            <asp:TextBox ID="txtIDCode" Text="" runat="server" Width="92px"/>
-        </td>
-        <td valign="bottom">
-             <asp:Button ID="btnSelect" Text="Select" onclick="btnSelect_Click"  runat="server" />
-        </td>
-        <td valign="bottom">
-             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
-                 ControlToValidate="txtIDCode" Display="Dynamic" 
-                 ErrorMessage="Please enter a number." Font-Size="Large" ForeColor="#CC3300" 
-                 ValidationExpression="\d+"></asp:RegularExpressionValidator>
-             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                 Display="Dynamic" ErrorMessage="Please enter an ID." 
-                 ControlToValidate="txtIDCode" Font-Size="Large" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-        </td>
-    </tr>
-    </table>
-    <p>&nbsp;</p>
-    <asp:GridView ID="gvCatalog" runat="server" 
-        DataKeyNames="ProductID" 
-     >
-
-    </asp:GridView>
+    <a href="Default.aspx">Home</a> | <a href="register.aspx">Register</a> | <a href="login.aspx">Login</a> | <a href="search.aspx">Search</a>
     <br />
     <br />
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>   
-    </div> 
-    </div>
+    <br />
+    <a href="register.aspx">Shelter Registration</a>
+    <a href="search.aspx">Search for Pets!</a>
+    <form id="form1" runat="server">
     </form>
+    </div>
+    </div>
 </body>
 </html>

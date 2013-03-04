@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="account.aspx" />
-    <Content Include="Default.aspx" />
+    <Content Include="default.aspx" />
     <Content Include="login.aspx" />
     <Content Include="register.aspx" />
     <Content Include="Site.css" />
@@ -72,12 +72,12 @@
     <Compile Include="account.aspx.designer.cs">
       <DependentUpon>account.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

@@ -13,6 +13,7 @@ using System.Web.UI.WebControls;
 
 namespace PetFinder {
     public partial class register : System.Web.UI.Page {
+        SqlConnection conn = new SqlConnection("Server=cdmcoursedb.cstcis.cti.depaul.edu;uid=jvasallo;pwd=;database=jvasallo");
 
         // if users navigate to register button somehow after logged in, redirect to myaccount
         protected void Page_Load(object sender, EventArgs e) {
@@ -59,7 +60,7 @@ namespace PetFinder {
             string b64 = getEncryptedPassword(passwordString);
 
             SqlDataReader myReader;
-            SqlConnection conn = new SqlConnection("Server=cdmcoursedb.cstcis.cti.depaul.edu;uid=jvasallo;pwd=;database=jvasallo");
+            
 
             // tries its hand at openning the connection via the credentials provided
             try {
@@ -131,6 +132,7 @@ namespace PetFinder {
             try {
                 cmdInsert.ExecuteNonQuery();
                 Session["loggedin"] = true;
+                Session["UserName"] = userName;
                 Response.Redirect("account.aspx");
             }
             catch (Exception) {

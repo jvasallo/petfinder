@@ -12,7 +12,7 @@ using System.Web.UI.WebControls;
 
 namespace PetFinder {
     public partial class login : System.Web.UI.Page {
-
+        SqlConnection conn = new SqlConnection("Server=cdmcoursedb.cstcis.cti.depaul.edu;uid=jvasallo;pwd=;database=jvasallo");
         protected void Page_Load(object sender, EventArgs e) {
             if (!Page.IsPostBack)
             {
@@ -25,9 +25,7 @@ namespace PetFinder {
         }
       
         protected void btnLogin_Click(object sender, EventArgs e) {
-            SqlDataReader myReader;
-            // please don't steal my info :) Connecting to the database and openning the connection for use..
-            SqlConnection conn = new SqlConnection("Server=cdmcoursedb.cstcis.cti.depaul.edu;uid=jvasallo;pwd=;database=jvasallo");
+            SqlDataReader myReader;       
             conn.Open();
 
             // selecting the record from our "shelter" table which contains account information for specific username (which should be unique)...
@@ -43,7 +41,8 @@ namespace PetFinder {
                     string b64 = getEncryptedPassword(txtPassword.Text);
                     if (myReader["password"].ToString() == b64) {
                         Session["loggedin"] = true;
-                        Response.Redirect("account.aspx");
+                        Session["UserName"] = txtUserName.Text;
+                        Response.Redirect("account.aspx", false);
                     }
                 }
             }

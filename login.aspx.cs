@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.IO;
@@ -22,29 +24,35 @@ namespace PetFinder {
             }
         }
       
-        protected void btnLogin_Click(object sender, EventArgs e) { 
-            string b64 = UserNameAndEncryptedPassword();
-            string line = "";
-            string pathname = Server.MapPath("passwords.txt"); //~/Database/passwords.txt
-            StreamReader sr = new StreamReader (pathname);
-            while(sr.Peek( ) > -1) {
-                line = sr.ReadLine( );
-                if (line == b64) {
-                    sr.Close( );
-                    Session["loggedin"] = true;
-                    Response.Redirect("account.aspx");
+        protected void btnLogin_Click(object sender, EventArgs e) {
+            SqlDataReader myReader;
+            // please don't steal my info :) Connecting to the database and openning the connection for use..
+            SqlConnection conn = new SqlConnection("Server=cdmcoursedb.cstcis.cti.depaul.edu;uid=jvasallo;pwd=;database=jvasallo");
+            conn.Open();
+
+            // selecting the record from our "shelter" table which contains account information for specific username (which should be unique)...
+            string strSelect = "SELECT * FROM Shelters";
+            strSelect += string.Format(" WHERE username = @username");
+            SqlCommand cmdSelect = new SqlCommand(strSelect, conn);
+            cmdSelect.Parameters.AddWithValue("@username", txtUserName.Text);
+            myReader = cmdSelect.ExecuteReader(CommandBehavior.CloseConnection);
+
+            while (myReader.Read()) {
+                if (myReader["username"].ToString() == txtUserName.Text)
+                {
+                    string b64 = getEncryptedPassword(txtPassword.Text);
+                    if (myReader["password"].ToString() == b64) {
+                        Session["loggedin"] = true;
+                        Response.Redirect("account.aspx");
+                    }
                 }
             }
-            sr.Close( );
+            myReader.Close();
+            conn.Close();
             litMessage.Text = "Login not successful.  Please try again.";
         }
 
-        string UserNameAndEncryptedPassword() {
-            // retrieve username
-            string userName = txtUserName.Text;
-            // retrieve password
-            string pw = txtPassword.Text;
-            // here is the secret word
+        string getEncryptedPassword(string pw) {
             string keyString = "My_53cr3t_K3y";
             // prepare secret word for encryption work
             byte[] key = Encoding.ASCII.GetBytes(keyString.ToCharArray( ));
@@ -55,7 +63,7 @@ namespace PetFinder {
             // compute encryted password
             byte[] hash = hmac.ComputeHash(password);
             // and reformat it as a string.
-            string b64 = userName + ";" + Convert.ToBase64String(hash);
+            string b64 = Convert.ToBase64String(hash);
             return b64;
         }
 

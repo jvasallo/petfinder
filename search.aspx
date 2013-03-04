@@ -21,44 +21,49 @@
     <p><a href="Default.aspx">Home</a> | <a href="register.aspx">Register</a> | <a href="login.aspx">Login</a></p>
     <table>
     <tr>
-        <td colspan="2"> 
-        Select by
+        <td colspan="4"> 
+        Enter Search Terms:
         </td>
     </tr>
     <tr>
+        <td>Pet Type: </td>
+        <td>Age: </td>
+        <td>Keywords: </td>
+        <td> </td>
+    </tr>
+    <tr>
         <td>
-            <asp:RadioButtonList ID="rdoFieldSpecified" runat="server">
-              <asp:ListItem Selected="True">SupplierID</asp:ListItem>
-              <asp:ListItem>CategoryID</asp:ListItem>
-            </asp:RadioButtonList>
-
+            <asp:DropDownList id="lstCategory" runat="server">
+                <asp:ListItem Value='N' Selected="True">Select...</asp:ListItem>
+            </asp:DropDownList>
         </td>
-        <td valign="bottom">
-            <asp:TextBox ID="txtIDCode" Text="" runat="server" Width="92px"/>
+        <td>
+            <asp:TextBox id="txtPetAge" width="60px" runat="server"/>
         </td>
-        <td valign="bottom">
-             <asp:Button ID="btnSelect" Text="Select" onclick="btnSelect_Click"  runat="server" />
+        <td>
+            <asp:TextBox id="txtDescription" runat="server"/>
         </td>
-        <td valign="bottom">
-             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
-                 ControlToValidate="txtIDCode" Display="Dynamic" 
-                 ErrorMessage="Please enter a number." Font-Size="Large" ForeColor="#CC3300" 
-                 ValidationExpression="\d+"></asp:RegularExpressionValidator>
-             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                 Display="Dynamic" ErrorMessage="Please enter an ID." 
-                 ControlToValidate="txtIDCode" Font-Size="Large" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+        <td>
+             <asp:Button ID="btnSearch" Text="Select" onclick="btnSearch_Click"  runat="server" />
         </td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                 ControlToValidate="txtPetAge" Display="Dynamic" 
+                 ErrorMessage="Please enter a valid age." ForeColor="#CC3300" 
+                 ValidationExpression="\d"></asp:RegularExpressionValidator>
+        </td>
+        <td></td>
+        <td><asp:Label ID="litMessage" runat="server" /></td>
     </tr>
     </table>
     <p>&nbsp;</p>
-    <asp:GridView ID="gvCatalog" runat="server" 
-        DataKeyNames="ProductID" 
-     >
-
-    </asp:GridView>
+    <asp:GridView ID="gvCatalog" runat="server" DataKeyNames="PetName" cellpadding="10" cellspacing="5"/>
     <br />
     <br />
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>   
+    <asp:Label ID="Label1" runat="server" Text="Label" />   
     </div> 
     </div>
     </form>

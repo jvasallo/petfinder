@@ -11,47 +11,115 @@ namespace PetFinder
 {
     public partial class search : System.Web.UI.Page
     {
+        SqlConnection conn = new SqlConnection("Server=cdmcoursedb.cstcis.cti.depaul.edu;uid=jvasallo;pwd=;database=jvasallo");
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                SqlDataReader myReader;
-                SqlConnection conn = new SqlConnection("Server=cdmcoursedb.cstcis.cti.depaul.edu;uid=jvasallo;pwd=;database=jvasallo");
-                string strSelect = "SELECT * FROM Products2013";
-                SqlCommand cmdSelect = new SqlCommand(strSelect, conn);
-                conn.Open();
-                myReader = cmdSelect.ExecuteReader(CommandBehavior.CloseConnection);
-    
-                gvCatalog.DataSource = myReader;
-                gvCatalog.DataBind();
+                FillCategoryList();
 
-                conn.Open();
-                conn.Dispose();
+                string strSelect = @"SELECT PetName, Categories.CategoryName AS 'Pet Type', Sex, Age, Description, Shelters.shelter AS 'Shelter Name', Shelters.email 'Contact E-Mail' FROM Pets 
+                                    JOIN Shelters ON Pets.ShelterID = Shelters.ShelterID 
+                                    JOIN Categories ON Pets.CategoryID = Categories.CategoryID";
+                SqlCommand cmdSelect = new SqlCommand(strSelect, conn);
+                SqlDataReader myReader;
+                try {
+                    conn.Open();
+                    myReader = cmdSelect.ExecuteReader(CommandBehavior.CloseConnection);
+                    gvCatalog.DataSource = myReader;
+                    gvCatalog.DataBind();
+                }
+                catch (Exception) {
+                }
+                Label1.Text = "";
+                conn.Close();
             }
         }
 
-        protected void btnSelect_Click(object sender, EventArgs e)
+        private void FillCategoryList()
+        {
+            lstCategory.Items.Clear();
+            string selectSQL = "SELECT CategoryID, CategoryName FROM Categories";
+            SqlCommand cmd = new SqlCommand(selectSQL, conn);
+            SqlDataReader myReader;
+
+            try
+            {
+                conn.Open();
+                myReader = cmd.ExecuteReader();
+                lstCategory.Items.Add(new ListItem("Select...", "0"));
+                while (myReader.Read())
+                {
+                    ListItem newItem = new ListItem();
+                    newItem.Text = myReader["CategoryName"].ToString();
+                    newItem.Value = myReader["CategoryID"].ToString();
+                    lstCategory.Items.Add(newItem);
+                }
+                myReader.Close();
+            }
+            catch (Exception)
+            {
+                litMessage.Text = "Error reading list of categories. ";
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
         {
             // Collecting the selected field and also the value entered into the text.
-            string selectedField = rdoFieldSpecified.SelectedValue;
-            string specifiedValue = txtIDCode.Text;
+            int petCategory = Convert.ToInt32(lstCategory.SelectedValue);
+            string description = txtDescription.Text;
 
             SqlDataReader myReader;
             // please don't steal my info :) Connecting to the database and openning the connection for use..
-            SqlConnection conn = new SqlConnection("Server=cdmcoursedb.cstcis.cti.depaul.edu;uid=jvasallo;pwd=;database=jvasallo");
             conn.Open();
 
-            // starting off our query string then appending the where clause of:
-            // WHERE @selectedField = @id. id represents the specifiedValue param.
-            // Note: This seems like the only way to add this, I wasn't able to do:
-            // WHERE @seletecField = @id, after research the variable you are checking for
-            // typically can't be insterted as a param. Not sure if that's right or wrong.
-            string strSelect = "SELECT * FROM Products2013";
-            strSelect += string.Format(" WHERE {0} = @id", selectedField);
+            string strSelect = @"SELECT PetName, Categories.CategoryName AS Type, Sex, Age, Description, Shelters.shelter, Shelters.email FROM Pets 
+                                 JOIN Shelters ON Pets.ShelterID = Shelters.ShelterID
+                                 JOIN Categories ON Pets.CategoryID = Categories.CategoryID";
 
-            // we are making our string into a sql command and defining the @id param.
+
+            // all field search (petCategory, Age, and Description)
+            if(petCategory != 0 && txtPetAge.Text != "" && description != "") {
+                strSelect += string.Format(" WHERE Pets.CategoryID = @categoryID AND Age = @age AND Description Like @description");
+            }
+            // two field searches (petCategory and Age), (PetCategory and K/W), (Age and K/W)
+            else if ((petCategory != 0) && (txtPetAge.Text != "") && (description == "")) {
+                strSelect += string.Format(" WHERE Pets.CategoryID = @categoryID AND Age = @age");
+            }
+            else if ((petCategory != 0) && (txtPetAge.Text == "") && (description != "")) {
+                strSelect += string.Format(" WHERE Pets.CategoryID = @categoryID AND Description Like @description");
+            }
+            else if ((petCategory == 0) && (txtPetAge.Text != "") && (description != ""))
+            {
+                strSelect += string.Format(" WHERE Age = @age AND Description Like @description");
+            } 
+            // singular searches (only petCategory, only Age, only description)
+            else if (petCategory != 0 && txtPetAge.Text == "" && description == "") {
+                strSelect += string.Format(" WHERE Pets.CategoryID = @categoryID");
+            }
+            else if (petCategory == 0 && txtPetAge.Text != "" && description == "") {
+                strSelect += string.Format(" WHERE Age = @age");
+            }
+            else if (petCategory == 0 && txtPetAge.Text == "" && description != "") {
+                strSelect += string.Format(" WHERE Description Like @description");
+            }
+
+            // we are making our string into a sql command and defining the @params.
             SqlCommand cmdSelect = new SqlCommand(strSelect, conn);
-            cmdSelect.Parameters.AddWithValue("@id", int.Parse(specifiedValue));
+
+            if (petCategory != 0) {
+                cmdSelect.Parameters.AddWithValue("@categoryID", petCategory);
+            }
+            if (txtPetAge.Text != "") {
+                cmdSelect.Parameters.AddWithValue("@age", Convert.ToInt32(txtPetAge.Text));
+            }
+            if (description != "") {
+                cmdSelect.Parameters.AddWithValue("@description", "%" + description + "%");
+            }
 
             // we are executing the command and collecting the information into our reader.
             myReader = cmdSelect.ExecuteReader(CommandBehavior.CloseConnection);

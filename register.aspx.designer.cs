@@ -22,6 +22,42 @@ namespace PetFinder {
         protected global::System.Web.UI.HtmlControls.HtmlForm frmLogin;
         
         /// <summary>
+        /// txtNewShelterName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNewShelterName;
+        
+        /// <summary>
+        /// lblNoShelterName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNoShelterName;
+        
+        /// <summary>
+        /// txtNewEmailAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNewEmailAddress;
+        
+        /// <summary>
+        /// lblNoEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNoEmail;
+        
+        /// <summary>
         /// txtNewUserName control.
         /// </summary>
         /// <remarks>

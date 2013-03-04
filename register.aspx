@@ -15,9 +15,28 @@
     </style>
 </head>
 <body>
-    <h2>Register Your Shelter on PetFinder!</h2>
+    <div class="page">
+        <div class="header">
+            <div class="title">
+               <h1> Register Your Shelter with PetFinder!</h1>
+            </div>
+            <div class="clear hideSkiplink">  </div>
+        </div>
+    <div class="main">
+    <p><a href="Default.aspx">Home</a> | <a href="login.aspx">Login</a> | <a href="search.aspx">Search</a></p>
+    <p>By registering, you can add pets that need adoption to our pet database!</p>
     <form id="frmLogin" runat="server">
     <table>
+        <tr>
+            <td>Shelter Name: </td>
+            <td><asp:TextBox Id="txtNewShelterName" CssClass="field" runat="server" /></td>
+            <td><asp:Label id="lblNoShelterName" runat="server" CssClass="error" /> </td>
+        </tr>
+        <tr>
+            <td>Email Address: </td>
+            <td><asp:TextBox Id="txtNewEmailAddress" CssClass="field" runat="server" /></td>
+            <td><asp:Label id="lblNoEmail" runat="server" CssClass="error" /> </td>
+        </tr>
         <tr>
             <td>Username: </td>
             <td><asp:TextBox Id="txtNewUserName" CssClass="field" runat="server" /></td>
@@ -40,6 +59,8 @@
     <asp:Button  ID="Button1" runat="server" CssClass="field" Text="Register"  OnClick="btnRegister_Click" />
     
     <p style="color:Red"><asp:Literal ID="litMessage" runat="server" /></p>
+    </div>
+    </div>
     </form>
 </body>
 </html>

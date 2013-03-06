@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace PetFinder {
     public partial class account : System.Web.UI.Page {
-        SqlConnection conn = new SqlConnection("Server=cdmcoursedb.cstcis.cti.depaul.edu;uid=jvasallo;pwd=;database=jvasallo");
+        SqlConnection conn = new SqlConnection("Server=cdmcoursedb.cstcis.cti.depaul.edu;uid=jvasallo;pwd=Exgv74dT;database=jvasallo");
 
         protected void Page_Load(object sender, EventArgs e) {
             if (Session["loggedin"] == null) {
@@ -21,6 +21,7 @@ namespace PetFinder {
         }
 
         private void FillCategoryList() {
+        /*
             lstCategory.Items.Clear();
             string selectSQL = "SELECT CategoryID, CategoryName FROM Categories";
             SqlCommand cmd = new SqlCommand(selectSQL, conn);
@@ -47,6 +48,7 @@ namespace PetFinder {
             {
                 conn.Close();
             }
+         */
         }
 
         public void btnLogout_Click(object sender, EventArgs e) {
@@ -83,84 +85,10 @@ namespace PetFinder {
             return shelterID;
         }
 
-        protected void btnAddPet_Click(object sender, EventArgs e) {
-            string petname = txtNewPetName.Text;
-            string strAge = txtNewPetAge.Text;
-            char sex = Convert.ToChar(txtNewPetSex.SelectedValue);
-            int age = 0;
-            string description = txtNewPetDescription.Text;
-            string shelterName = null;
-            if (Session["UserName"] != null) {
-                shelterName = Session["UserName"].ToString();
-            }
-            int shelterID = getShelterID(shelterName);
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-            int categoryID = Convert.ToInt32(lstCategory.SelectedValue);
-
-            lblNoPetName.Text = "";
-            lblNoPetAge.Text = "";
-            lblNoPetDescription.Text = "";
-
-            // check to see if user entered pet name
-            if (petname == "") {
-                lblNoPetName.Text = "Please enter a pet name!";
-                return;
-            }
-
-            // check to see if user selected a pet sex
-            if (sex == 'N') {
-                lblNoPetSex.Text = "Please select Male or Female!";
-                return;
-            }
-
-            // check to see if user entered pet age
-            if (strAge == "") {
-                lblNoPetAge.Text = "Please enter a pet age!";
-                return;
-            }
-            else {
-                age = Convert.ToInt32(strAge);
-            }
-
-            // check to see if description is blank
-            if (description == "") {
-                lblNoPetDescription.Text = "Please enter a Pet Description!";
-                return;
-            }
-
-            // check to ensure description is within length constraints
-            if (description.Length > 1000) {
-                lblNoPetDescription.Text = "You description was over 1000 characters!";
-                return;
-            }
-
-            // check to see if we got back a valid Shelter ID
-            if (shelterID == 0) {
-                litMessage.Text = "There was an error posting! Please contact an administrator!";
-                return;
-            }
-
-            // if we got here all is good, and begin storing the DB
-            string strInsert = "INSERT INTO Pets (PetName, Sex, Age, Description, ShelterID, CategoryID)";
-            strInsert += string.Format(" VALUES (@petname,@sex,@age,@description,@shelterID,@categoryID)");
-            SqlCommand cmdInsert = new SqlCommand(strInsert, conn);
-            cmdInsert.Parameters.AddWithValue("@petname", petname);
-            cmdInsert.Parameters.AddWithValue("@sex", sex);
-            cmdInsert.Parameters.AddWithValue("@age", age);
-            cmdInsert.Parameters.AddWithValue("@description", description);
-            cmdInsert.Parameters.AddWithValue("@shelterID", shelterID);
-            cmdInsert.Parameters.AddWithValue("@categoryID", categoryID);
-
-            // we try to insert, if we fail we catch the exception and display user friendly error.
-            try
-            {
-                cmdInsert.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
-                litMessage.Text = "Error adding pet! Please contact Administrator.";
-            }
-            litMessage.Text = "Pet Added Successfully!";
         }
+
     }
 }

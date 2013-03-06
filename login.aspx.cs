@@ -12,7 +12,7 @@ using System.Web.UI.WebControls;
 
 namespace PetFinder {
     public partial class login : System.Web.UI.Page {
-        SqlConnection conn = new SqlConnection("Server=cdmcoursedb.cstcis.cti.depaul.edu;uid=jvasallo;pwd=;database=jvasallo");
+        SqlConnection conn = new SqlConnection("Server=cdmcoursedb.cstcis.cti.depaul.edu;uid=jvasallo;pwd=Exgv74dT;database=jvasallo");
         protected void Page_Load(object sender, EventArgs e) {
             if (!Page.IsPostBack)
             {
@@ -25,8 +25,13 @@ namespace PetFinder {
         }
       
         protected void btnLogin_Click(object sender, EventArgs e) {
-            SqlDataReader myReader;       
-            conn.Open();
+            SqlDataReader myReader;
+            try {
+                conn.Open();
+            }
+            catch (Exception) {
+                litMessage.Text = "Error with Login. Contact Admin!";
+            }
 
             // selecting the record from our "shelter" table which contains account information for specific username (which should be unique)...
             string strSelect = "SELECT * FROM Shelters";

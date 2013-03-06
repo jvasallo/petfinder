@@ -49,14 +49,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="account.aspx" />
+    <Content Include="addpet.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="login.aspx" />
     <Content Include="register.aspx" />
     <Content Include="search.aspx" />
     <Content Include="Site.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -69,6 +73,13 @@
     </Compile>
     <Compile Include="account.aspx.designer.cs">
       <DependentUpon>account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addpet.aspx.cs">
+      <DependentUpon>addpet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addpet.aspx.designer.cs">
+      <DependentUpon>addpet.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

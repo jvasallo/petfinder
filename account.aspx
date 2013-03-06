@@ -23,52 +23,13 @@
             <div class="clear hideSkiplink">  </div>
         </div>
     <div class="main">
-    
-    <h3>Main page reached from login page.</h3>
-
     <form id="frmMainPage" runat="server">
-    <a href="Default.aspx">Home</a> | <a href="search.aspx">Search</a></p> | <asp:LinkButton id= "logout" Text="Logout" runat="server" onclick="btnLogout_Click" />
-
+    <p><a href="Default.aspx">Home</a> | <a href="search.aspx">Search</a> | <a href="account.aspx">My PetFinder</a> | <a href="addpet.aspx"> Add Pet</a> | <asp:LinkButton id="logout" Text="Logout" runat="server" onclick="btnLogout_Click" /> </p>
     <p>
-        This is the page where you would keep your sensitive information.
+        Welcome to your account! Below you can find all your posted pets and delete pets who have already been adopted! You can add more pets using the Add Pet link above! Thanks for using PetFinder!
     </p>
-    <table>
-        <tr>
-            <td>Pet Name: </td>
-            <td><asp:TextBox Id="txtNewPetName" CssClass="field" runat="server" /></td>
-            <td><asp:Label id="lblNoPetName" runat="server" CssClass="error" /> </td>
-        </tr>
-        <tr>
-            <td>Pet Type: </td>
-            <td><asp:dropdownlist id="lstCategory" runat="server"/></td>
-            <td> </td>
-        </tr>
-        <tr>
-            <td>Sex: </td>
-            <td><asp:dropdownlist id="txtNewPetSex" runat="server">
-                <asp:ListItem Value='N' Selected="True">Select...</asp:ListItem>
-                <asp:ListItem Value='M'>M</asp:ListItem>
-                <asp:ListItem Value='F'>F</asp:ListItem>
-            </asp:dropdownlist>
-            </td>
-            <td><asp:Label id="lblNoPetSex" runat="server" CssClass="error" /></td>
-        </tr>
-        <tr>
-            <td>Age: </td>
-            <td><asp:TextBox Id="txtNewPetAge" CssClass="field" runat="server" /></td>
-            <td><asp:Label id="lblNoPetAge" runat="server" CssClass="error" /> </td>
-        </tr>
-        <tr>
-            <td>Description: </td>
-            <td><asp:TextBox ID="txtNewPetDescription" Cssclass="field" runat="server" TextMode="multiline" /></td>
-            <td><asp:label id="lblNoPetDescription" runat="server" CssClass="error" /></td>
-        </tr>
-    </table>
-    <asp:Button  ID="Button1" runat="server" CssClass="field" Text="Add Pet"  OnClick="btnAddPet_Click" />
-    
-    <p style="color:Red"><asp:Literal ID="litMessage" runat="server" /></p>
-    </div>
-    </div>
     </form>
+    </div>
+    </div>
 </body>
 </html>

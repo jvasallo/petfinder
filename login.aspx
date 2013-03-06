@@ -42,8 +42,8 @@
     <p style="color:Red">
         <asp:Literal ID="litMessage" runat="server" />
     </p>
-    </div>
-    </div>
     </form>
+    </div>
+    </div>
 </body>
 </html>

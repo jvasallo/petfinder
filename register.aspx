@@ -59,8 +59,8 @@
     <asp:Button  ID="Button1" runat="server" CssClass="field" Text="Register"  OnClick="btnRegister_Click" />
     
     <p style="color:Red"><asp:Literal ID="litMessage" runat="server" /></p>
-    </div>
-    </div>
     </form>
+    </div>
+    </div>
 </body>
 </html>

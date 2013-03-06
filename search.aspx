@@ -9,7 +9,6 @@
 </head>
 
 <body>
-    <form id="form1" runat="server">
     <div class="page">
         <div class="header">
             <div class="title">
@@ -18,6 +17,7 @@
             <div class="clear hideSkiplink">  </div>
         </div>
     <div class="main">
+    <form id="form1" runat="server">
     <p><a href="Default.aspx">Home</a> | <a href="register.aspx">Register</a> | <a href="login.aspx">Login</a></p>
     <table>
     <tr>
@@ -63,9 +63,9 @@
     <asp:GridView ID="gvCatalog" runat="server" DataKeyNames="PetName" cellpadding="10" cellspacing="5"/>
     <br />
     <br />
-    <asp:Label ID="Label1" runat="server" Text="Label" />   
-    </div> 
-    </div>
+    <asp:Label ID="Label1" runat="server" Text="Label" /> 
     </form>
+    </div>
+    </div>
 </body>
 </html>

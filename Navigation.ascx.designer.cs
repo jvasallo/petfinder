@@ -10,24 +10,15 @@
 namespace PetFinder {
     
     
-    public partial class account {
+    public partial class Navigation {
         
         /// <summary>
-        /// Head1 control.
+        /// logout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
-        
-        /// <summary>
-        /// Navigation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::PetFinder.Navigation Navigation;
+        protected global::System.Web.UI.WebControls.LinkButton logout;
     }
 }

@@ -31,6 +31,15 @@ namespace PetFinder {
         protected global::System.Web.UI.HtmlControls.HtmlForm frmLogin;
         
         /// <summary>
+        /// Navigation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PetFinder.Navigation Navigation;
+        
+        /// <summary>
         /// txtUserName control.
         /// </summary>
         /// <remarks>

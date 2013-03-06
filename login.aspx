@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="PetFinder.login" %>
+<%@ Register TagPrefix="Petfinder" TagName="Navigation" Src="~/Navigation.ascx" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -22,9 +23,9 @@
             <div class="clear hideSkiplink">  </div>
         </div>
     <div class="main">
-    <p><a href="Default.aspx">Home</a> | <a href="register.aspx">Register</a> | <a href="search.aspx">Search</a></p>
 
     <form id="frmLogin" runat="server">
+    <Petfinder:Navigation runat="server" ID="Navigation" />
     <table>
         <tr>
             <td>Username:</td>

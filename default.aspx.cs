@@ -11,7 +11,7 @@ namespace PetFinder
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ClientScript.GetPostBackEventReference(this, string.Empty);
         }
     }
 }

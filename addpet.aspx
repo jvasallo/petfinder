@@ -24,7 +24,7 @@
         </div>
     <div class="main">
     <form id="frmMainPage" runat="server">
-    <a href="Default.aspx">Home</a> | <a href="search.aspx">Search</a> | <a href="account.aspx">My PetFinder</a> | <a href="addpet.aspx"> Add Pet</a> | <asp:LinkButton id="logout" Text="Logout" runat="server" onclick="btnLogout_Click" />
+    <PetFinder:Navigation runat="server" ID="Navigation" />
 
     <p>
         On this page, add new pets that come into your shelter for the world to see!</p>

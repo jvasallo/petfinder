@@ -51,12 +51,6 @@ namespace PetFinder {
          */
         }
 
-        public void btnLogout_Click(object sender, EventArgs e) {
-            Session["loggedin"] = null;
-            Session["UserName"] = null;
-            Response.Redirect("default.aspx");
-        }
-
         int getShelterID(string shelterName)
         {
             int shelterID = 0;
@@ -88,6 +82,11 @@ namespace PetFinder {
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        // This needs to be overridden so that we can embed Asp:LinkButtons and more in UserControls.
+        public override void VerifyRenderingInServerForm(Control control)
+        {
         }
 
     }

@@ -1,18 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="register.aspx.cs" Inherits="PetFinder.register" %>
+<%@ Register TagPrefix="Petfinder" TagName="Navigation" Src="~/Navigation.ascx" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>PetFinder Registeration</title>
+    <title>PetFinder Registration</title>
     <link rel="stylesheet" type="text/css" href="Site.css" />
-    <style type="text/css">
-        td      { padding-top:0.15cm; padding-bottom:0.15cm;
-                  padding-left:0.5cm; padding-right:0.5cm; }
-        tr      { text-align:center; }
-        .field  { width:150px}
-        .error  { color:red}
-    </style>
 </head>
 <body>
     <div class="page">
@@ -23,9 +17,10 @@
             <div class="clear hideSkiplink">  </div>
         </div>
     <div class="main">
-    <p><a href="Default.aspx">Home</a> | <a href="login.aspx">Login</a> | <a href="search.aspx">Search</a></p>
-    <p>By registering, you can add pets that need adoption to our pet database!</p>
+    
     <form id="frmLogin" runat="server">
+    <PetFinder:Navigation runat="server" ID="Navigation" />
+    <p>By registering, you can add pets that need adoption to our pet database!</p>
     <table>
         <tr>
             <td>Shelter Name: </td>

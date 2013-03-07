@@ -13,22 +13,6 @@ body
     color: #696969;
 }
 
-a:link, a:visited
-{
-    color: #034af3;
-}
-
-a:hover
-{
-    color: #1d60ff;
-    text-decoration: none;
-}
-
-a:active
-{
-    color: #034af3;
-}
-
 p
 {
     margin-bottom: 10px;

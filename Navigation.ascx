@@ -10,8 +10,8 @@
     <% }
        else
        { %>
-         <li><a href="account.aspx">My PetFinder</a></li>
+         <li><a href="account.aspx">Your Account</a></li>
          <li><a href="addpet.aspx"> Add Pet</a></li>
-         <li><asp:LinkButton id="logout" Text="Log out (currently broken)" runat="server" onclick="btnLogout_Click" /></li>
+         <li><asp:LinkButton id="logout" Text="Log Out" runat="server" onclick="btnLogout_Click" /></li>
     <% } %>
 </ul>

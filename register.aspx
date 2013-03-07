@@ -1,25 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="register.aspx.cs" Inherits="PetFinder.register" %>
-<%@ Register TagPrefix="Petfinder" TagName="Navigation" Src="~/Navigation.ascx" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="register.aspx.cs" Inherits="PetFinder.register" MasterPageFile="~/Site1.Master" Title="Register Your Shelter With PetFinder!" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>PetFinder Registration</title>
-    <link rel="stylesheet" type="text/css" href="Site.css" />
-</head>
-<body>
-    <div class="page">
-        <div class="header">
-            <div class="title">
-               <h1> Register Your Shelter with PetFinder!</h1>
-            </div>
-            <div class="clear hideSkiplink">  </div>
-        </div>
-    <div class="main">
-    
-    <form id="frmLogin" runat="server">
-    <PetFinder:Navigation runat="server" ID="Navigation" />
     <p>By registering, you can add pets that need adoption to our pet database!</p>
     <table>
         <tr>
@@ -54,8 +36,4 @@
     <asp:Button  ID="Button1" runat="server" CssClass="field" Text="Register"  OnClick="btnRegister_Click" />
     
     <p style="color:Red"><asp:Literal ID="litMessage" runat="server" /></p>
-    </form>
-    </div>
-    </div>
-</body>
-</html>
+</asp:Content>

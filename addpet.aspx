@@ -1,31 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addpet.aspx.cs" Inherits="PetFinder.addpet" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addpet.aspx.cs" Inherits="PetFinder.addpet" MasterPageFile="~/Site1.Master" Title="Add a Pet" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
-    <title>PetFinder Shelter Homepage</title>
-    <link rel="stylesheet" type="text/css" href="Site.css" />
-    <style type="text/css">
-        td      { padding-top:0.15cm; padding-bottom:0.15cm;
-                  padding-left:0.5cm; padding-right:0.5cm; }
-        .field  { width:150px}
-        .error  { color:red}
-    </style>
-</head>
-
-<body>
-    <div class="page">
-        <div class="header">
-            <div class="title">
-               <h1> My PetFinder Account</h1>
-            </div>
-            <div class="clear hideSkiplink">  </div>
-        </div>
-    <div class="main">
-    <form id="frmMainPage" runat="server">
-    <PetFinder:Navigation runat="server" ID="Navigation" />
-
+<asp:Content id="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <p>
         On this page, add new pets that come into your shelter for the world to see!</p>
     <table>
@@ -63,8 +38,4 @@
     <asp:Button  ID="Button1" runat="server" CssClass="field" Text="Add Pet"  OnClick="btnAddPet_Click" />
     
     <p style="color:Red"><asp:Literal ID="litMessage" runat="server" /></p>
-    </form>
-    </div>
-    </div>
-</body>
-</html>
+</asp:Content>

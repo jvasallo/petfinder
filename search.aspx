@@ -1,25 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="search.aspx.cs" Inherits="PetFinder.search" %>
-<%@ Register TagPrefix="Petfinder" TagName="Navigation" Src="~/Navigation.ascx" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="search.aspx.cs" Inherits="PetFinder.search" MasterPageFile="~/Site1.Master" Title="Search for Pets" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
-    <title>Pet Finder Search</title>
-    <link href="Site.css" rel="Stylesheet" type="text/css" />
-</head>
-
-<body>
-    <div class="page">
-        <div class="header">
-            <div class="title">
-               <h1> Pet Finder Search Results</h1>
-            </div>
-            <div class="clear hideSkiplink">  </div>
-        </div>
-    <div class="main">
-    <form id="form1" runat="server">
-    <PetFinder:Navigation runat="server" ID="Navigation" />
+<asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
     <table>
     <tr>
         <td colspan="4"> 
@@ -64,9 +45,5 @@
     <asp:GridView ID="gvCatalog" runat="server" DataKeyNames="PetName" cellpadding="10" cellspacing="5"/>
     <br />
     <br />
-    <asp:Label ID="Label1" runat="server" Text="Label" /> 
-    </form>
-    </div>
-    </div>
-</body>
-</html>
+    <asp:Label ID="Label1" runat="server" Text="Label" />
+</asp:Content>

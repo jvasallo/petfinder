@@ -52,8 +52,10 @@
     <Content Include="addpet.aspx" />
     <Content Include="bootstrap.min.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Footer.ascx" />
     <Content Include="login.aspx" />
     <Content Include="Navigation.ascx" />
+    <Content Include="Pet.ascx" />
     <Content Include="register.aspx" />
     <Content Include="search.aspx" />
     <Content Include="Site.css" />
@@ -90,6 +92,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Footer.ascx.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Footer.ascx.designer.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -103,6 +112,13 @@
     </Compile>
     <Compile Include="Navigation.ascx.designer.cs">
       <DependentUpon>Navigation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pet.ascx.cs">
+      <DependentUpon>Pet.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pet.ascx.designer.cs">
+      <DependentUpon>Pet.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="register.aspx.cs">

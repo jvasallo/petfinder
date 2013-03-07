@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="PetFinder.Site1" %>
 <%@ Register TagPrefix="Petfinder" TagName="Navigation" Src="~/Navigation.ascx" %>
+<%@ Register TagPrefix="Petfinder" TagName="Footer" Src="~/Footer.ascx" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -7,24 +8,35 @@
 <head id="Head1" runat="server">
     <title>PetFinder &rarr; <%= Page.Title %></title>
     <link rel="stylesheet" type="text/css" href="Site.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    <div class="page">
-        <div class="header">
-            <div class="title">
-               <h1><%= Page.Title %></h1>
-            </div>
-            <div class="clear hideSkiplink">  </div>
-        </div>
-    <div class="main">
-    <form id="Form1" runat="server">
-    <PetFinder:Navigation runat="server" ID="Navigation" />
-        <div id="content">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    <div class="container">
+        <div class="main">
+            <form id="Form1" runat="server">
+                <div class="row">
+                    <div class="span12">
+                        <PetFinder:Navigation runat="server" ID="Navigation" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span12">
+                        <div class="page-header">
+                        <h1><%= Page.Title %>
+                            <% if (Page.Title == "Home") { %>
+                            <small>PetFinder connects individuals with shelters!</small>
+                            <% } %>
+                        </h1>
+                        </div>
+                    </div>
+                </div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
-            </asp:ContentPlaceHolder>
+                </asp:ContentPlaceHolder>
+            </form>
         </div>
-    </form>
+
+        <Petfinder:Footer runat="server" ID="Footer" />
     </div>
 </body>
 </html>

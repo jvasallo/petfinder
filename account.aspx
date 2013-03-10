@@ -4,4 +4,17 @@
     <p>
         Welcome to your account! Below you can find all your posted pets and delete pets who have already been adopted! You can add more pets using the Add Pet link above! Thanks for using PetFinder!
     </p>
+    <br />
+    <br />
+    <h2>Your Pets</h2>
+    <hr />
+    <asp:GridView ID="gvCatalog" runat="server" DataKeyNames="PetName" cellpadding="10" cellspacing="5">
+        <Columns>
+            <asp:TemplateField>
+                <ItemTemplate>
+                    <asp:LinkButton ID="btnDelete" Runat="server" OnClientClick="return confirm('Are you sure you?');" CommandName="Delete" >Delete</asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
 </asp:Content>

@@ -15,40 +15,32 @@ namespace PetFinder {
             if (Session["loggedin"] == null) {
                 Response.Redirect("login.aspx");
             }
-            if (!this.IsPostBack) {
-                FillCategoryList();
-            }
-        }
-
-        private void FillCategoryList() {
-        /*
-            lstCategory.Items.Clear();
-            string selectSQL = "SELECT CategoryID, CategoryName FROM Categories";
-            SqlCommand cmd = new SqlCommand(selectSQL, conn);
-            SqlDataReader myReader;
-
-            try
+            if (!Page.IsPostBack)
             {
-                conn.Open();
-                myReader = cmd.ExecuteReader();
-                while (myReader.Read())
-                {
-                    ListItem newItem = new ListItem();
-                    newItem.Text = myReader["CategoryName"].ToString();
-                    newItem.Value = myReader["CategoryID"].ToString();
-                    lstCategory.Items.Add(newItem);
+                string strSelect = @"SELECT PetName, Categories.CategoryName AS 'Pet Type', Sex, Age, Description
+                                     FROM Pets 
+                                     JOIN Shelters ON Pets.ShelterID = Shelters.ShelterID 
+                                     JOIN Categories ON Pets.CategoryID = Categories.CategoryID";
+                strSelect += string.Format(" WHERE Pets.ShelterID = @userid");
+                SqlCommand cmdSelect = new SqlCommand(strSelect, conn);
+                string shelterName = null;
+                if (Session["UserName"] != null) {
+                    shelterName = Session["UserName"].ToString();
                 }
-                myReader.Close();
-            }
-            catch (Exception)
-            {
-                litMessage.Text = "Error reading list of categories. ";
-            }
-            finally
-            {
+                int shelterID = getShelterID(shelterName);
+                cmdSelect.Parameters.AddWithValue("@userid", shelterID);
+                SqlDataReader myReader = null;
+                try
+                {
+                    conn.Open();
+                }
+                catch (Exception) { }
+
+                myReader = cmdSelect.ExecuteReader(CommandBehavior.CloseConnection);                    
+                gvCatalog.DataSource = myReader;
+                gvCatalog.DataBind();    
                 conn.Close();
             }
-         */
         }
 
         int getShelterID(string shelterName)
@@ -72,17 +64,12 @@ namespace PetFinder {
                     myReader.Close();
                 }
             }
-            catch (Exception)
-            {
-                //litMessage.Text = "Unable to verify account! Please contact administrator!";
-            }
+            catch (Exception) { }
             return shelterID;
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        protected void btnDelete_Click(object sender, EventArgs e)
+        { }
 
         // This needs to be overridden so that we can embed Asp:LinkButtons and more in UserControls.
         public override void VerifyRenderingInServerForm(Control control)

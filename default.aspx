@@ -7,18 +7,16 @@
             <h2>Featured Pets</h2>
         </div>
     </div>
-    <div id="featured-pets" class="row">
-        <Petfinder:Pet runat="server" ID="Pet1" />
-        <Petfinder:Pet runat="server" ID="Pet2" />
-        <Petfinder:Pet runat="server" ID="Pet3" />
-    </div>
+
+    <Petfinder:Pet runat="server" ID="Pet" />
+
     <div class="row">
         <div id="submenu">
             <br />
             <div class="span6">
                 <h3>Find A Pet</h3>
                 <p>What are you waiting for! Begin your search today and find your perfect pet!</p>
-                <a href="search.aspx" class="btn btn-large"><i class="icon-search"></i>Search</a>
+                <a href="search.aspx" class="btn btn-large">Search</a>
             </div>
             <div class="span6">
                 <h3>Shelter Registration</h3>

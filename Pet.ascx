@@ -2,7 +2,7 @@
 
 <div class="span4">
     <div class="pet">
-        <a href="#"><img src="http://placehold.it/300x200" /></a>
+        <a href="#"><img src="http://placehold.it/300x200" alt="Pet Picture"/></a>
 
         <hgroup>
             <h3>Rue <small class="text-success pull-right">Already adopted!</small></h3>
@@ -10,4 +10,3 @@
         </hgroup>
     </div>
 </div>
-

@@ -8,11 +8,6 @@ body
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
-a:link, a:visited, .nav-tabs a:link, .nav-tabs a:visited
-{
-    color: #2e7bcc;
-}
-
 footer 
 {
     text-align: center;
@@ -60,6 +55,11 @@ footer
 div.main 
 {
     margin: 3ex 0;
+}
+
+div#submenu
+{
+    text-align: center;
 }
 
 #aspnetForm 

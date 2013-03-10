@@ -18,12 +18,12 @@
             <div class="span6">
                 <h3>Find A Pet</h3>
                 <p>What are you waiting for! Begin your search today and find your perfect pet!</p>
-                <a href="search.aspx" class="btn btn-large"><i class="icon-search"></i>Search</a>
+                <a href="search.aspx" class="btn btn-large"><i class="icon-search"></i> Search</a>
             </div>
             <div class="span6">
                 <h3>Shelter Registration</h3>
                 <p>Shelter not listed? No problem! Register your shelter today to help all your furry friends find homes!</p>
-                <a href="register.aspx" class="btn btn-large btn-primary">Shelter Signup</a>
+                <a href="register.aspx" class="btn btn-large btn-warning"><i class="icon-pencil"></i> Shelter Signup</a>
             </div>
         </div>
     </div>

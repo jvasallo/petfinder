@@ -33,7 +33,12 @@
             <td><asp:label id="lblNoPass" runat="server" CssClass="error" /></td>
         </tr>
     </table>
-    <asp:Button  ID="Button1" runat="server" CssClass="field" Text="Register"  OnClick="btnRegister_Click" />
+
+    <div class="controls-row">
+        <div class="controls">
+            <asp:Button  ID="Button1" runat="server" CssClass="btn btn-large" Text="Register"  OnClick="btnRegister_Click" />
+        </div>
+    </div>
     
     <p style="color:Red"><asp:Literal ID="litMessage" runat="server" /></p>
 </asp:Content>

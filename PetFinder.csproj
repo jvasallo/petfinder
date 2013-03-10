@@ -53,6 +53,8 @@
     <Content Include="bootstrap.min.css" />
     <Content Include="Default.aspx" />
     <Content Include="Footer.ascx" />
+    <Content Include="glyphicons-halflings-white.png" />
+    <Content Include="glyphicons-halflings.png" />
     <Content Include="login.aspx" />
     <Content Include="Navigation.ascx" />
     <Content Include="Pet.ascx" />

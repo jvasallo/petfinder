@@ -21,7 +21,7 @@
                 </div>
                 <div class="row">
                     <div class="span12">
-                        <div class="page-header">
+                        <div class="page-header hero-unit">
                         <h1><%= Page.Title %>
                             <% if (Page.Title == "Home") { %>
                             <small>PetFinder connects individuals with shelters!</small>

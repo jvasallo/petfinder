@@ -119,7 +119,14 @@ namespace PetFinder {
                 return;
             }
             else {
-                age = Convert.ToInt32(strAge);
+                try
+                {
+                    age = Convert.ToInt32(strAge);
+                }
+                catch (Exception) { 
+                    lblNoPetAge.Text = "Please enter a valid age!"; 
+                    return; 
+                }
             }
 
             // check to see if description is blank
@@ -155,12 +162,12 @@ namespace PetFinder {
             try
             {
                 cmdInsert.ExecuteNonQuery();
+                Response.Redirect("account.aspx");
             }
             catch (Exception)
             {
                 litMessage.Text = "Error adding pet! Please contact Administrator.";
             }
-            litMessage.Text = "Pet Added Successfully!";
         }
     }
 }

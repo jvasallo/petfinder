@@ -6,6 +6,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+
 
 namespace PetFinder {
     public partial class account : System.Web.UI.Page {
@@ -17,7 +20,7 @@ namespace PetFinder {
             }
             if (!Page.IsPostBack)
             {
-                string strSelect = @"SELECT PetName, Categories.CategoryName AS 'Pet Type', Sex, Age, Description
+                string strSelect = @"SELECT PetID AS 'PetFinder ID', PetName, Categories.CategoryName AS 'Pet Type', Sex, Age, Description
                                      FROM Pets 
                                      JOIN Shelters ON Pets.ShelterID = Shelters.ShelterID 
                                      JOIN Categories ON Pets.CategoryID = Categories.CategoryID";
@@ -68,8 +71,33 @@ namespace PetFinder {
             return shelterID;
         }
 
-        protected void btnDelete_Click(object sender, EventArgs e)
-        { }
+        // will handle the delete function
+        protected void btnDelete_Click(object sender, CommandEventArgs e)
+        {
+            // tries its hand at openning the connection via the credentials provided
+            try
+            {
+                conn.Open();
+            }
+            catch (Exception)
+            {
+                litMessage.Text = "Profile Management is under maintenance! Apologies.";
+            }
+
+            string strDelete = @"DELETE FROM Pets WHERE PetID = @petID";
+            SqlCommand cmdDelete = new SqlCommand(strDelete, conn);
+            cmdDelete.Parameters.AddWithValue("@petID", e.CommandArgument.ToString());
+            try
+            {
+                cmdDelete.ExecuteNonQuery();
+                conn.Close();
+                Response.Redirect("account.aspx");
+            }
+            catch (Exception)
+            {
+                litMessage.Text = "Error Deleting Pet! Please contact Admin!";
+            }
+        }
 
         // This needs to be overridden so that we can embed Asp:LinkButtons and more in UserControls.
         public override void VerifyRenderingInServerForm(Control control)

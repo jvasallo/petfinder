@@ -13,12 +13,30 @@ namespace PetFinder {
     public partial class Default {
         
         /// <summary>
-        /// Pet control.
+        /// Pet1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::PetFinder.Pet Pet;
+        protected global::PetFinder.Pet Pet1;
+        
+        /// <summary>
+        /// Pet2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PetFinder.Pet Pet2;
+        
+        /// <summary>
+        /// Pet3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PetFinder.Pet Pet3;
     }
 }

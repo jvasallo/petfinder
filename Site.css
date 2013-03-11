@@ -28,7 +28,7 @@ footer
     font-size: 12px;
 }
 
-.colophon a:link, .colophon a:visited 
+footer a:link, footer a:visited 
 {
     color: #666;
 }
@@ -79,4 +79,45 @@ hgroup h5,
 hgroup h6
 {
     margin-top: 0;
+}
+
+.nav-tabs a:link, .nav-tabs a:visited
+{
+    color: #597A36;
+}
+
+.nav-tabs 
+{
+    border-bottom-color: #597A36;
+}
+
+.nav-tabs>.active>a, .nav-tabs>.active>a:hover, .nav-tabs>.active>a:focus 
+{
+    border-color: #597A36;
+    border-bottom-color: transparent;
+    color: #597A36;
+    font-weight: bold;
+}
+
+.nav-tabs li a:hover 
+{
+    border-bottom-color: #597A36;
+}
+
+h1
+{
+    color: #597A36;
+}
+
+h1 small { color: #333; text-align: right; float: right; margin-top: 2ex; }
+
+.form-inline div.controls 
+{
+    display: inline-block;
+    margin-right: 1em;
+    margin-bottom: 2ex;
+}
+.controls-row.with-space 
+{
+    margin-top: 2ex;
 }

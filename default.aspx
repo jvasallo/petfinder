@@ -23,7 +23,7 @@
             <div class="span6">
                 <h3>Shelter Registration</h3>
                 <p>Shelter not listed? No problem! Register your shelter today to help all your furry friends find homes!</p>
-                <a href="register.aspx" class="btn btn-large btn-warning"><i class="icon-pencil"></i> Shelter Signup</a>
+                <a href="register.aspx" class="btn btn-large btn-warning"><i class="icon-pencil icon-white"></i> Shelter Signup</a>
             </div>
         </div>
     </div>

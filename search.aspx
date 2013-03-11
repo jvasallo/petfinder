@@ -35,7 +35,7 @@
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
                  ControlToValidate="txtPetAge" Display="Dynamic" 
                  ErrorMessage="Please enter a valid age." ForeColor="#CC3300" 
-                 ValidationExpression="\d"></asp:RegularExpressionValidator>
+                 ValidationExpression="\d{0,3}"></asp:RegularExpressionValidator>
         </td>
         <td></td>
         <td><asp:Label ID="litMessage" runat="server" /></td>

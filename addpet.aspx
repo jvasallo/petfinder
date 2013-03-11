@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addpet.aspx.cs" Inherits="PetFinder.addpet" MasterPageFile="~/Site1.Master" Title="Add a Pet" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addpet.aspx.cs" Inherits="PetFinder.addpet" MasterPageFile="Site1.Master" Title="Add a Pet" %>
 
 <asp:Content id="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <p>

@@ -1,6 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="PetFinder.Site1" %>
-<%@ Register TagPrefix="Petfinder" TagName="Navigation" Src="~/Navigation.ascx" %>
-<%@ Register TagPrefix="Petfinder" TagName="Footer" Src="~/Footer.ascx" %>
+<%@ Register TagPrefix="Petfinder" TagName="Navigation" Src="Navigation.ascx" %>
+<%@ Register TagPrefix="Petfinder" TagName="Footer" Src="Footer.ascx" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 

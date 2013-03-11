@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="search.aspx.cs" Inherits="PetFinder.search" MasterPageFile="~/Site1.Master" Title="Search for Pets" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="search.aspx.cs" Inherits="PetFinder.search" MasterPageFile="Site1.Master" Title="Search for Pets" %>
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
     <div class="form-inline">

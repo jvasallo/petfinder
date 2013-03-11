@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="PetFinder.login" MasterPageFile="~/Site1.Master" Title="Shelter Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="PetFinder.login" MasterPageFile="Site1.Master" Title="Shelter Login" %>
 
 <asp:content id="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 

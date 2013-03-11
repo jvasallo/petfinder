@@ -1,8 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="register.aspx.cs" Inherits="PetFinder.register" MasterPageFile="~/Site1.Master" Title="Register Your Shelter With PetFinder!" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="register.aspx.cs" Inherits="PetFinder.register" MasterPageFile="Site1.Master" Title="Register With PetFinder!" %>
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <p>By registering, you can add pets that need adoption to our pet database!</p>
+    <p>By registering your shelter, you can add pets that need adoption to our pet database!</p>
     <table>
         <tr>
             <td>Shelter Name: </td>

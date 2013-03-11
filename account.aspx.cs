@@ -12,7 +12,7 @@ using System.Web.UI.HtmlControls;
 
 namespace PetFinder {
     public partial class account : System.Web.UI.Page {
-        SqlConnection conn = new SqlConnection("Server=cdmcoursedb.cstcis.cti.depaul.edu;uid=jvasallo;pwd=Exgv74dT;database=jvasallo");
+        SqlConnection conn = new SqlConnection("Server=cdmcoursedb.cstcis.cti.depaul.edu;uid=jvasallo;pwd=;database=jvasallo");
 
         protected void Page_Load(object sender, EventArgs e) {
             if (Session["loggedin"] == null) {
